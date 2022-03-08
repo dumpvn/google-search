@@ -5,7 +5,8 @@ export function activate(context: vscode.ExtensionContext) {
 		let selectedText = getSelectedText();
 		if (selectedText) {
 			// JavaScript remove prefix from string
-			selectedText = selectedText.replace(/^(#*)(\s*)/,'');
+			//              # spaces and start with a line comment 
+			selectedText = selectedText.replace(/^(\s*#*)(\s*)/,'');
 			selectedText = selectedText.replace(/^(\s*\/*)(\s*)/,'');
 			selectedText = selectedText.replace(/^\s*(<#)\s*/,'');
 			selectedText = selectedText.replace(/^\s*(\/*\**)\s*/,'');
